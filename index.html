@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0f766e">
+  <title>単位研究所 － 長さラボ －</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <header class="topbar">
+    <button class="brand" id="homeBtn" aria-label="トップへ">📏 <span>単位研究所</span><small>長さラボ</small></button>
+    <div class="header-stats"><span>XP <b id="xpValue">0</b></span><button id="badgeBtn">🏅 <b id="badgeCount">0</b>/7</button></div>
+  </header>
+
+  <main>
+    <section id="homeScreen" class="screen active">
+      <div class="hero card">
+        <div class="hero-copy">
+          <p class="eyebrow">数と単位をセットで研究しよう</p>
+          <h1>単位研究所 <span>－ 長さラボ －</span></h1>
+          <p>ものに合う単位を見つけ、変換・修理・くらべ方を身につけよう。1回10問、じっくり考えて大丈夫！</p>
+          <div class="hero-actions"><button class="primary" id="resumeBtn">おすすめから始める</button><button class="ghost hint-open">📚 単位一覧</button></div>
+        </div>
+        <img class="hero-character" src="https://tt-sensei.github.io/navi-character-/assets/web/groups/learning/group-learning-pair-measure-shadow.webp" alt="長さを調べるNAVIキャラ">
+      </div>
+
+      <section class="mode-area" aria-labelledby="modeTitle">
+        <div class="section-title"><div><p class="eyebrow">5つの研究</p><h2 id="modeTitle">研究モードを選ぼう</h2></div><p id="totalRecord">学習 0問</p></div>
+        <div class="mode-grid" id="modeGrid"></div>
+      </section>
+
+      <section class="training card">
+        <div><span class="lab-icon">🎯</span><div><h2>苦手特訓</h2><p id="trainingText">まちがえた問題がここに集まります。</p></div></div>
+        <button id="trainingBtn" class="secondary" disabled>特訓する</button>
+      </section>
+    </section>
+
+    <section id="playScreen" class="screen">
+      <div class="play-shell card">
+        <div class="play-head">
+          <button class="back" id="quitBtn">← もどる</button>
+          <div><p id="playMode" class="eyebrow"></p><h2 id="progressText">1 / 10</h2></div>
+          <button class="ghost compact hint-open">📚 単位一覧</button>
+        </div>
+        <div class="progress"><i id="progressBar"></i></div>
+        <div class="question-wrap">
+          <div class="mini-scene" id="sceneIcon" aria-hidden="true">📐</div>
+          <p id="instruction" class="instruction"></p>
+          <div id="questionText" class="question"></div>
+          <div id="answerArea" class="answer-area"></div>
+          <div id="feedback" class="feedback" aria-live="polite"></div>
+        </div>
+        <div class="play-footer"><button id="stopTraining" class="danger-link" hidden>特訓をやめる</button><span id="sessionScore">正解 0</span></div>
+      </div>
+    </section>
+
+    <section id="resultScreen" class="screen">
+      <div class="result card">
+        <div class="result-medal" id="resultMedal">🔬</div>
+        <p class="eyebrow">研究レポート</p><h1 id="resultTitle">チャレンジ完了！</h1>
+        <div class="result-grid"><div><b id="resultScore">0 / 10</b><span>正解数</span></div><div><b id="resultRate">0%</b><span>正答率</span></div><div><b id="resultXp">+0</b><span>獲得XP</span></div></div>
+        <p class="navi-message" id="resultMessage"></p>
+        <div id="newBadge" class="new-badge" hidden></div>
+        <div class="result-actions"><button class="primary" id="retryBtn">もう一度</button><button class="secondary" id="resultHomeBtn">研究所へ</button></div>
+      </div>
+    </section>
+
+    <section id="badgeScreen" class="screen">
+      <div class="section-title"><div><p class="eyebrow">集めた研究成果</p><h1>バッジコレクション</h1></div><button class="secondary" id="badgeBackBtn">研究所へ</button></div>
+      <div class="badge-grid" id="badgeGrid"></div>
+    </section>
+  </main>
+
+  <dialog id="hintDialog">
+    <div class="dialog-head"><div><p class="eyebrow">研究メモ</p><h2>長さの単位一覧</h2></div><button id="hintClose" aria-label="閉じる">×</button></div>
+    <div class="unit-relations"><div><b>10</b><span>mm</span><strong>＝</strong><b>1</b><span>cm</span></div><div><b>100</b><span>cm</span><strong>＝</strong><b>1</b><span>m</span></div><div><b>1000</b><span>m</span><strong>＝</strong><b>1</b><span>km</span></div></div>
+    <div class="unit-sense"><div><b>mm</b><span>とても小さい長さ</span><small>紙のあつさ・つめのあつさ</small></div><div><b>cm</b><span>手で持てるもの</span><small>えんぴつ・ノート・ものさし</small></div><div><b>m</b><span>人や部屋くらい</span><small>身長・ドア・教室</small></div><div><b>km</b><span>長い道のり</span><small>町と町・駅までのきょり</small></div></div>
+    <p class="hint-note">数字だけで決めず、「何をはかっているか」も見よう。</p>
+  </dialog>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
